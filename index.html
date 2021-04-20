@@ -61,12 +61,12 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Feed RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Cerca"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Cerca"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -114,297 +114,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/20/hello-world/" data-id="cknpdeiml0000xcv1ggckcyro" data-title="Hello World" class="article-share-link">Condividi</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-JVM" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/17/JVM/" class="article-date">
-  <time class="dt-published" datetime="2021-03-17T12:29:25.754Z" itemprop="datePublished">2021-03-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><a href="#java%E4%BD%93%E7%B3%BB%E5%8F%8Ajvm%E7%AE%80%E4%BB%8B">JAVA体系及JVM简介</a><ul>
-<li><a href="#java%E6%8A%80%E6%9C%AF%E4%BD%93%E7%B3%BB">JAVA技术体系</a></li>
-<li><a href="#jvm%E7%AE%80%E4%BB%8B">JVM简介</a></li>
-</ul>
-</li>
-<li><a href="#java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E5%BC%82%E5%B8%B8">Java内存区域与内存泄露异常</a><ul>
-<li><a href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F">运行时数据区域</a><ul>
-<li><a href="#%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8">程序计数器</a></li>
-<li><a href="#java%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88">Java虚拟机栈</a></li>
-<li><a href="#%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88">本地方法栈</a></li>
-<li><a href="#java%E5%A0%86">Java堆</a></li>
-<li><a href="#%E6%96%B9%E6%B3%95%E5%8C%BA">方法区</a></li>
-<li><a href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0">运行时常量池</a></li>
-<li><a href="#%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98">直接内存</a></li>
-</ul>
-</li>
-<li><a href="#hotspot%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AF%B9%E8%B1%A1">HotSpot虚拟机对象</a><ul>
-<li><a href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B">对象的创建过程</a></li>
-<li><a href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80">对象的内存布局</a></li>
-<li><a href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AE%BF%E9%97%AE%E5%AE%9A%E4%BD%8D">对象的访问定位</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5">垃圾收集器与内存分配策略</a><ul>
-<li><a href="#%E5%88%A4%E6%96%AD%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E5%AD%98%E6%B4%BB">判断对象是否存活</a><ul>
-<li><a href="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E7%AE%97%E6%B3%95">引用计数算法</a></li>
-<li><a href="#%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95">可达性分析算法</a></li>
-<li><a href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B">引用类型</a></li>
-<li><a href="#%E5%88%A4%E5%AE%9A%E5%AF%B9%E8%B1%A1%E6%AD%BB%E4%BA%A1">判定对象死亡</a></li>
-<li><a href="#%E6%96%B9%E6%B3%95%E5%8C%BA%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86">方法区垃圾收集</a></li>
-</ul>
-</li>
-<li><a href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95">垃圾收集算法</a><ul>
-<li><a href="#%E5%88%86%E4%BB%A3%E6%94%B6%E9%9B%86%E7%90%86%E8%AE%BA">分代收集理论</a></li>
-<li><a href="#%E6%A0%87%E8%AE%B0-%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95">标记-清除算法</a></li>
-<li><a href="#%E6%A0%87%E8%AE%B0-%E5%A4%8D%E5%88%B6%E7%AE%97%E6%B3%95">标记-复制算法</a></li>
-<li><a href="#%E6%A0%87%E8%AE%B0-%E6%95%B4%E7%90%86%E7%AE%97%E6%B3%95">标记-整理算法</a></li>
-</ul>
-</li>
-<li><a href="#%E7%BB%8F%E5%85%B8%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8">经典垃圾收集器</a><ul>
-<li><a href="#serial%E6%94%B6%E9%9B%86%E5%99%A8">Serial收集器</a></li>
-<li><a href="#parnew%E6%94%B6%E9%9B%86%E5%99%A8">ParNew收集器</a></li>
-<li><a href="#parallel-scavenge%E6%94%B6%E9%9B%86%E5%99%A8">Parallel Scavenge收集器</a></li>
-<li><a href="#serial-old%E6%94%B6%E9%9B%86%E5%99%A8">Serial Old收集器</a></li>
-<li><a href="#parallel-old%E6%94%B6%E9%9B%86%E5%99%A8">Parallel Old收集器</a></li>
-<li><a href="#cms%E6%94%B6%E9%9B%86%E5%99%A8">CMS收集器</a></li>
-<li><a href="#g1%E6%94%B6%E9%9B%86%E5%99%A8">G1收集器</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84">类文件结构</a><ul>
-<li><a href="#class%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84">Class类文件结构</a><ul>
-<li><a href="#%E9%AD%94%E6%95%B0%E4%B8%8Eclass%E6%96%87%E4%BB%B6%E7%9A%84%E7%89%88%E6%9C%AC">魔数与Class文件的版本</a></li>
-<li><a href="#%E5%B8%B8%E9%87%8F%E6%B1%A0">常量池</a></li>
-<li><a href="#%E7%B1%BB%E7%B4%A2%E5%BC%95%E7%88%B6%E7%B1%BB%E7%B4%A2%E5%BC%95%E4%B8%8E%E6%8E%A5%E5%8F%A3%E7%B4%A2%E5%BC%95%E9%9B%86%E5%90%88">类索引，父类索引与接口索引集合</a></li>
-<li><a href="#%E5%AD%97%E6%AE%B5%E8%A1%A8%E9%9B%86%E5%90%88">字段表集合</a></li>
-<li><a href="#%E6%96%B9%E6%B3%95%E8%A1%A8%E9%9B%86%E5%90%88">方法表集合</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6">虚拟机类加载机制</a><ul>
-<li><a href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E6%97%B6%E6%9C%BA">类加载的时机</a></li>
-<li><a href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E8%BF%87%E7%A8%8B">类加载的过程</a><ul>
-<li><a href="#%E5%8A%A0%E8%BD%BD">加载</a></li>
-<li><a href="#%E9%AA%8C%E8%AF%81">验证</a></li>
-<li><a href="#%E5%87%86%E5%A4%87">准备</a></li>
-<li><a href="#%E8%A7%A3%E6%9E%90">解析</a></li>
-<li><a href="#%E5%88%9D%E5%A7%8B%E5%8C%96">初始化</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8">类加载器</a><ul>
-<li><a href="#%E7%B1%BB%E4%B8%8E%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8">类与类加载器</a></li>
-<li><a href="#%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B">双亲委派模型</a><h2 id="JAVA体系及JVM简介"><a href="#JAVA体系及JVM简介" class="headerlink" title="JAVA体系及JVM简介"></a>JAVA体系及JVM简介</h2><h3 id="JAVA技术体系"><a href="#JAVA技术体系" class="headerlink" title="JAVA技术体系"></a>JAVA技术体系</h3>JDK：包括Java程序设计语言、Java虚拟机以及Java类库三个部分，是<strong>支持Java开发的最小环境</strong>。<br>JRE：包括Java类库API中的Java SE子集和JVM，是<strong>支持Java程序运行的标准环境。</strong><br>Java Card：支持Java小程序运行在小内存设备上的平台。<br>Java ME：支持Java程序运行在<strong>移动终端</strong>上的平台，<strong>Android不属于Java ME</strong>。<br>Java SE：支持面向<strong>桌面级应用</strong>的Java平台。<br>java EE：支持使用<strong>多层架构的企业应用</strong>的Java平台。<h3 id="JVM简介"><a href="#JVM简介" class="headerlink" title="JVM简介"></a>JVM简介</h3>Java之所以可以“一次编写，到处运行”，是因为Java语言首先将源代码编译成一种特殊的语言规范，称为<strong>字节码</strong>，而虚拟机负责解析字节码文件的内容，并将其翻译为各操作系统能理解的机器码。<br><img src="https://img2018.cnblogs.com/blog/595137/201812/595137-20181212194650912-14632118.png" alt="Java编译过程"></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><strong>JVM不仅仅能运行Java代码</strong>，只要是字节码文件，JVM都能运行。准确地说，<strong>JVM与字节码文件（Class文件）绑定</strong>。</p>
-<h2 id="Java内存区域与内存泄露异常"><a href="#Java内存区域与内存泄露异常" class="headerlink" title="Java内存区域与内存泄露异常"></a>Java内存区域与内存泄露异常</h2><h3 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h3><p><img src="https://img-blog.csdnimg.cn/20200103213220764.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly90aGlua3dvbi5ibG9nLmNzZG4ubmV0,size_16,color_FFFFFF,t_70" alt="运行时数据区域"></p>
-<h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h4><p>程序计数器是一块较小的内存空间，可以看作是当前线程所执行字节码的行号指示器。<strong>它是程序控制流的指示器</strong>，分支、循环、跳转、异常处理等基础功能都依赖于它。<br>每条线程都有一个独立的程序计数器，各个线程的计数器各自独立，互不影响。因此程序计数器是<strong>线程私有</strong>的。<br>线程执行Java程序时，程序计数器记录的是正在执行的字节码指令的地址；执行本地方法时，这个计数器值应为空。<strong>线程计数器是唯一一个在《Java虚拟机规范》中没有规定任何 OutOfMemoryError 情况的区域。</strong></p>
-<h4 id="Java虚拟机栈"><a href="#Java虚拟机栈" class="headerlink" title="Java虚拟机栈"></a>Java虚拟机栈</h4><p>Java虚拟机栈也是线程私有的，它的生命周期与线程相同。虚拟机栈描述的是Java方法执行的线程内存模型：每个方法被执行的时候，JVM都会创建一个栈帧（Stack Frame）用于储存局部变量表、操作数栈、动态连接、方法出口等信息。<strong>每一个方法被调用至执行完毕的过程，就对应着一个栈桢在虚拟机中从入栈到出栈的过程</strong>。<br>局部变量表中存放了编译期可知的各种JVM基本数据类型、对象引用和returnAddress类型（指向一条字节码指令的地址）。这些数据类型在局部变量表中储存在局部变量槽中，long和double类型变量占用两个，其余的占用一个。<strong>局部变量表的内存空间在编译期间完成分配，方法运行期间不会改变局部变量表的大小</strong>。（这里的大小指的是局部变量槽的数量）<br>虚拟机栈有两类异常：  </p>
-<blockquote>
-<ol>
-<li>线程请求的栈深度大于虚拟机允许的深度，抛出 StackOverFlowError异常。</li>
-<li>如果栈扩展时无法申请到足够的内存会抛出 OutOfMemory 异常。</li>
-</ol>
-</blockquote>
-<h4 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h4><p>本地方法栈作用与虚拟机栈相似，异常种类也相同，区别在于：<strong>虚拟机栈为JVM运行Java方法（字节码）服务，而本地方法栈为JVM运行本地方法服务</strong>。  </p>
-<h4 id="Java堆"><a href="#Java堆" class="headerlink" title="Java堆"></a>Java堆</h4><p>Java堆是虚拟机所管理的内存中最大的一块，被所有线程共享。该区域的唯一目的就是<strong>存放对象实例</strong>。<br>Java堆是垃圾收集器管理的内存区域。<br>Java堆可以处于物理上不连续的内存空间中，但在逻辑上应该被视为连续的。它既可以是固定大小的，也可以是可扩展的。<br>Java堆中没有内存实例分配，且堆也无法拓展时，会抛出 OutOfMemoryError 异常。</p>
-<h4 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h4><p>方法区和java堆一样，也为所有线程共享，<strong>用于存储已被虚拟机加载的类型信息、常量、静态变量等数据</strong>。<br>方法区也不需要连续的内存空间，也可以选择给定大小和可拓展，<strong>甚至可以选择不进行垃圾收集</strong>。这个区域内存回收目标主要是针对常量池的回收和对类型的卸载。<br>当方法区无法满足新的内存分配需求时，将抛出 OutOfMemoryError 异常。</p>
-<h4 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h4><p>运行时常量池是方法区的一部分。Class 文件中有一项是常量池表，用于存放编译器生成的各种字面量和符号引用，将在类加载后存放到运行时常量池中。一般来说，<strong>由符号引用翻译来的直接引用也储存在运行时常量池中</strong>。<br>运行时常量池相对于Class文件常量池的另一个重要特征是<strong>具备动态性</strong>，即运行期间也可以将新的常量放入池中，如 String 类的 intern() 方法。<br>运行时常量池异常类型与方法区相同。</p>
-<h4 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a>直接内存</h4><p><strong>直接内存并不是运行时数据区域的一部分</strong>，但是也被频繁使用，直接内存的分配不会受到Java堆大小的限制，但是直接内存区域经常会在配置JVM参数时被忽略，导致各个内存区域总和大于物理内存限制，导致动态拓展时出现 OutOfMemoryError 异常。</p>
-<h3 id="HotSpot虚拟机对象"><a href="#HotSpot虚拟机对象" class="headerlink" title="HotSpot虚拟机对象"></a>HotSpot虚拟机对象</h3><h4 id="对象的创建过程"><a href="#对象的创建过程" class="headerlink" title="对象的创建过程"></a>对象的创建过程</h4><ul>
-<li>当JVM遇到一条字节码new指令时，首先去检查这个指令的参数是否能在常量池中定位到一个类的符号引用，并且检查这个符号引用代表的类是否已经被加载、解析和初始化过。如果没有，先要进行类的加载过程。</li>
-<li>接下来为新对象分配内存。<strong>对象所需的内存大小在类加载完后就可以完全确定</strong>。内存分配方式有以下两种：<blockquote>
-<ul>
-<li>指针碰撞：假设Java堆中的内存是绝对规整的，使用过的和未使用的内存分别放在一边，中间是一个指针指示器，内存分配就是把指针向空闲方向移动一段与对象大小相当的的距离。</li>
-<li>空闲列表： 假设Java堆中的内存不是绝对规整的，虚拟机必须维护一个列表，记录哪些内存块可用。在分配的时候找到足够大的空间分配给对象，并更新列表。</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-<p>选择哪种分配方式由<strong>Java堆是否规整决定</strong>，而后者又由<strong>所采用的垃圾收集器是否带有空间压缩整理的能力</strong>决定，有则采用指针碰撞，否则采用空闲列表。<br>解决对象创建过程中内存分配的线程安全问题有两种方法：</p>
-<blockquote>
-<ul>
-<li>对分配内存的动作进行同步处理，虚拟机采用CAS配上失败重试的方式保证更新操作的原子性。</li>
-<li>把内存分配的动作按照线程划分在不同的空间，即本地线程分配缓冲 (TLAB) 中进行,哪个线程要分配内存，就在该线程的本地缓冲区分配。只有本地缓冲区用完了，分配新的缓存区时才需要同步处理。</li>
-</ul>
-</blockquote>
-<p>内存分配完成后，JVM必须将分配到的内存初始化为零值。这一步操作<strong>保证了对象的实例字段可以不赋初始值就可以使用。</strong><br>接下来，JVM还要对对象进行必要的设置，例如这个对象是哪个类的实例、如何才能找到类的元数据信息、对象的 hashCode 等，这些信息存放在对象的对象头中。<br>一般来说，接下来会执行 init() 方法，按照程序员的意向对对象进行初始化。</p>
-<h4 id="对象的内存布局"><a href="#对象的内存布局" class="headerlink" title="对象的内存布局"></a>对象的内存布局</h4><p>HotSpot虚拟机中，对象在堆内存中的储存布局可以分为三个部分：**对象头(header)、实例数据和对齐填充(Padding)**。<br>头对象包括两类信息：</p>
-<blockquote>
-<ul>
-<li>第一类是用于储存对象自身的运行时数据，如哈希码、GC分代年龄、锁状态标志等等，这部分被官方称为”Mark Word”。Mark Word被设计成一个有着<strong>动态定义</strong>的数据结构，便于储存尽量多的数据。</li>
-<li>另一部分是类型指针，即对象指向它的类型元数据的指针，Java虚拟机通过这个指针确定对象是哪个类的实例。<strong>并不是所有的虚拟机实现都要求在对象数据上保留类型指针</strong>。</li>
-<li>如果对象是一个Java数组，那在对象头中还必须有一块用于记录数组长度的数据。</li>
-</ul>
-</blockquote>
-<p>实例数据部分是对象真正的有效信息，即程序代码中定义的各种类型的字段。这部分的存储顺序会受到虚拟机分配策略参数和字段在Java源码中定义顺序的影响。</p>
-<p>对齐填充不是必然存在的，仅仅起着<strong>占位符</strong>的作用。JVM要求任何对象的大小必须是<strong>8字节的整数倍</strong>，对象头是8字节的1倍或2倍，如果实例数据部分没有对齐的话，需要对齐填充补全。</p>
-<h4 id="对象的访问定位"><a href="#对象的访问定位" class="headerlink" title="对象的访问定位"></a>对象的访问定位</h4><p><strong>Java程序通过栈上的reference数据来操作堆上的具体对象</strong>，对象访问方式由虚拟机实现来决定，主流的访问方式有以下两种：</p>
-<blockquote>
-<ul>
-<li>句柄访问： Java堆中会划分出一块内存作为句柄池，reference中储存的是对象的句柄地址。<strong>句柄中包含了对象实例数据与类型数据各自具体的地址信息。</strong>。使用句柄访问最大的好处就是<strong>reference中存储的是稳定句柄地址，在对象被移动时只会改变句柄中的实例数据指针，而reference本身不用被修改。</strong></li>
-<li>直接指针访问，reference中存储的是<strong>对象地址</strong>，只是访问对象本身的话，可以节约一次间接访问的开销。<strong>HotSpot通常使用直接指针访问</strong>。</li>
-</ul>
-</blockquote>
-<h2 id="垃圾收集器与内存分配策略"><a href="#垃圾收集器与内存分配策略" class="headerlink" title="垃圾收集器与内存分配策略"></a>垃圾收集器与内存分配策略</h2><p>Java运行时数据区中，<strong>程序计数器、虚拟机栈、本地方法栈</strong>的内存分配和回收都具有<strong>确定性</strong>，而Java堆和方法区这两个区域则有着很大的不确定性：一个接口可能被多个类实现，只有在运行期间，才能知道程序到底创建了哪些对象，因此<strong>这两个区域的内存分配和回收是动态的</strong>，垃圾收集器关注的也正是这部分。</p>
-<h3 id="判断对象是否存活"><a href="#判断对象是否存活" class="headerlink" title="判断对象是否存活"></a>判断对象是否存活</h3><h4 id="引用计数算法"><a href="#引用计数算法" class="headerlink" title="引用计数算法"></a>引用计数算法</h4><p>在对象中添加一个引用计数器，有一个地方引用它时，计数器加一；引用失效时，计数器值减一，任何时刻计数器为0的对象就可以认为不再被使用。<br>引用计数算法原理简单，判定效率高，但是主流的JVM都没有使用它，因为<strong>需要考虑很多额外情况，需要配合大量额外处理</strong>。</p>
-<h4 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h4><p>JVM使用可达性分析算法来判定对象是否存活。这个算法是通过一系列称为“GC Roots”的根节点作为起始节点集，从这些结点开始，根据引用关系向下搜索，搜索走过的路径称为“引用链”。<strong>如果某个对象到GC Roots 是不可达的，就证明这个对象是可以回收的</strong>。<br>在Java技术体系中，固定可作为GC Roots的对象包括以下几种：</p>
-<blockquote>
-<ul>
-<li><strong>在虚拟机栈（栈帧中的本地变量表）中引用的对象</strong>，例如各个线程中被调用的方法堆栈中使用到的参数、局部变量、临时变量等。</li>
-<li><strong>在方法区中常量引用的对象</strong>，例如字符串常量池里的引用。</li>
-<li><strong>在本地方法栈中JNI（Native方法）引用的对象</strong>。</li>
-<li><strong>虚拟机内部的引用</strong>，如基本数据类型对应的 Class 对象， 一些常驻的异常对象等，还有系统类加载器。</li>
-<li><strong>所有被同步锁（synchronized关键字）持有的对象</strong>。</li>
-<li><strong>反映JVM内部情况的JMXBean、本地代码缓存等</strong>。</li>
-</ul>
-</blockquote>
-<p>除了这些固定的 GC Roots 集合外，根据选用的垃圾收集器以及当前回收的内存区域不同，还可以有其他对象临时加入。</p>
-<h4 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h4><p>判定对象是否存活和“引用”离不开关系。Java把引用类型分为以下几种：</p>
-<blockquote>
-<ul>
-<li>强引用(Strong Reference)：指在代码中普遍存在的引用赋值。<strong>任何情况下，只要强引用关系还在，就不会回收被引用的对象。</strong></li>
-<li>软引用(Soft Reference)：<strong>只被软引用关联着的对象，在系统将要发生内存溢出异常时，会把这些对象列入回收范围进行二次回收</strong>。使用 SoftReference 类实现软引用。</li>
-<li>弱引用(Weak Reference)：强度比软引用更弱。<strong>当垃圾收集器开始工作时，无论内存是否足够，都会回收掉只被弱引用关联的对象</strong>。使用 WeakReference 类实现弱引用。</li>
-<li>虚引用(Phantom Reference)：一个对象是否有虚引用的存在，完全不影响其生存时间，<strong>无法通过虚引用获得对象实例，虚引用唯一作用是在这个对象被回收时收到一个系统通知</strong>。使用 PhantomReference 类实现弱引用。</li>
-</ul>
-</blockquote>
-<h4 id="判定对象死亡"><a href="#判定对象死亡" class="headerlink" title="判定对象死亡"></a>判定对象死亡</h4><p>要真正宣告一个对象的死亡，至少要两次标记过程：</p>
-<ol>
-<li>在可达性分析后<strong>没有与 GC Roots 相连</strong>，被第一次标记。</li>
-<li>随后进行一次筛选，判断该对象<strong>有无必要执行finalize()方法</strong>。如果有必要执行finalize()方法，对象会被放置在F-Queue队列中，并在稍后由一条由虚拟机自动建立的、低调度优先级的Finalizer线程去执行他们的finalize()方法。否则对象将被回收。finalize()方法完全可以被try-finally语句取代，因此不建议使用。<h4 id="方法区垃圾收集"><a href="#方法区垃圾收集" class="headerlink" title="方法区垃圾收集"></a>方法区垃圾收集</h4>方法区垃圾收集主要回收两部分内容：<strong>废弃的常量和不再使用的类型</strong>。<br>一个常量池中的常量如果已经没有被任何对象引用，也没有被虚拟机中的其他地方引用，这个常量就可能被清理出常量池。<br>不再使用的类型需要同时满足以下三个条件：<blockquote>
-<ul>
-<li><strong>该类的所有实例已经被回收</strong>，即Java堆中不存在该类及其任何派生子类的实例。</li>
-<li><strong>加载该类的类加载器已经被回收</strong>。</li>
-<li><strong>该类对应的 Class 对象没有任何地方引用</strong>，无法在任何地方通过反射访问该类的方法。</li>
-</ul>
-</blockquote>
-</li>
-</ol>
-<h3 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h3><p>从如何判定对象是否消亡的角度出发，垃圾收集算法可以分为<strong>引用计数式垃圾收集，即直接垃圾收集</strong>和<strong>追踪式垃圾收集,即间接垃圾收集</strong>两大类。</p>
-<h4 id="分代收集理论"><a href="#分代收集理论" class="headerlink" title="分代收集理论"></a>分代收集理论</h4><p>分代假说：</p>
-<blockquote>
-<ul>
-<li>弱分代假说：绝大多数对象都是朝生夕灭的。</li>
-<li>强分代假说：熬过越多次垃圾收集的对象就越难以消亡。</li>
-</ul>
-</blockquote>
-<p>这两条假说奠定了一条原则：收集器应该将Java堆分配到不同区域，将回收对象依据其年龄分配到不同区域存储。<br>现在的虚拟机至少会把Java堆划分成新生代(Young Generation)和老年代(Old Generation)两个区域。在新生代中，每次垃圾收集时都会有大批对象死去，而存活的少量对象，将会逐步移至老年代。<br>为了解决跨代引用的问题，提出了第三条分代假说：</p>
-<blockquote>
-<ul>
-<li>跨代引用相对于同代引用来说仅占极少数。</li>
-</ul>
-</blockquote>
-<p>依据该假说，只需在新生代上建立一个全局的数据结构，称为“记忆集”，这个结构把老年代划分成若干小块，标识出老年代哪一块内存才会存在跨代引用。</p>
-<h4 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h4><p>这是最早也是最基础的垃圾收集算法，该算法分为两个阶段：可以先标记需要回收的对象，然后进行回收；也可以标记存活对象，统一回收未标记对象。<br><img src="https://img-blog.csdnimg.cn/20200104115917418.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly90aGlua3dvbi5ibG9nLmNzZG4ubmV0,size_16,color_FFFFFF,t_70" alt="标记-清除算法"><br>该算法有两个缺点：<strong>执行效率不稳定</strong>；<strong>产生大量不连续的内存碎片，提高了垃圾收集的触发频率</strong>。</p>
-<h4 id="标记-复制算法"><a href="#标记-复制算法" class="headerlink" title="标记-复制算法"></a>标记-复制算法</h4><p>该算法将可用内存分为大小相等的两块，每次只使用其中一块。这一块用完了，就将存活对象移到另一块内存中，再回收这块内存空间。<br><img src="https://img-blog.csdnimg.cn/20200104115940771.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly90aGlua3dvbi5ibG9nLmNzZG4ubmV0,size_16,color_FFFFFF,t_70" alt="标记-复制算法"><br>该算法实现简单，运行高效，但是空间浪费较大。<br>Appel式回收：把新生代分成一块较大的Eden空间和两块较小的Survivor空间，每次分配内存只使用Eden和一块Survivor，垃圾收集时，将仍然存在的对象复制到另外一块Survivor空间上，清理之前使用的空间。</p>
-<h4 id="标记-整理算法"><a href="#标记-整理算法" class="headerlink" title="标记-整理算法"></a>标记-整理算法</h4><p>该算法主要针对老年代，在标记可回收的对象后将<strong>所有存活的对象压缩到内存的一端</strong>，使他们紧凑的排列在一起，然后对端边界以外的内存进行回收。回收后，已用和未用的内存都各自一边。<br><img src="https://img-blog.csdnimg.cn/20200104120006513.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly90aGlua3dvbi5ibG9nLmNzZG4ubmV0,size_16,color_FFFFFF,t_70" alt="标记-整理算法"><br>该算法解决了内存碎片问题，但是任然无法避免对象的局部移动，降低了运行效率。</p>
-<h3 id="经典垃圾收集器"><a href="#经典垃圾收集器" class="headerlink" title="经典垃圾收集器"></a>经典垃圾收集器</h3><p>垃圾收集器是内存回收的实践者。常见的几种垃圾收集器如下图所示，其中用于<strong>回收新生代的收集器包括Serial、PraNew、Parallel Scavenge</strong>，<strong>回收老年代的收集器包括Serial Old、Parallel Old、CMS</strong>，还有用于回收整个Java堆的G1收集器。不同收集器之间的连线表示它们可以搭配使用。</p>
-<h4 id="Serial收集器"><a href="#Serial收集器" class="headerlink" title="Serial收集器"></a>Serial收集器</h4><p>Serial收集器是最基础的收集器，是一个单线程工作的收集器，<strong>工作时必须暂停其他所有工作线程</strong>。优点是<strong>相对而言简单而高效，额外内存消耗小</strong>，适用于<strong>客户端模式下的虚拟机</strong>。Serial处理器对<strong>新生代采用标记-复制算法</strong>，<strong>老年代采用标记-整理算法</strong>。</p>
-<h4 id="ParNew收集器"><a href="#ParNew收集器" class="headerlink" title="ParNew收集器"></a>ParNew收集器</h4><p>ParNew收集器是Serial收集器的多线程并行版本，除了同时使用多条线程进行垃圾收集以外，其余的行为与Serial收集器完全一致。<br><strong>目前只有它和Serial收集器能与CMS收集器搭配使用</strong>。</p>
-<h4 id="Parallel-Scavenge收集器"><a href="#Parallel-Scavenge收集器" class="headerlink" title="Parallel Scavenge收集器"></a>Parallel Scavenge收集器</h4><p>Parallel Scavenge收集器基于<strong>标记-复制算法</strong>实现，可以并行收集垃圾。它最大的特点是<strong>优先达到一个可控制的吞吐量</strong>，吞吐量就是处理器用于运行代码的时间与处理器总消耗时间的比值，吞吐量越高，处理器资源运用效率越高。因此，该收集器<strong>是用于在后台运算而不需要过多交互的分析任务。</strong></p>
-<h4 id="Serial-Old收集器"><a href="#Serial-Old收集器" class="headerlink" title="Serial Old收集器"></a>Serial Old收集器</h4><p>Serial收集器的老年代版本，使用<strong>标记–整理算法</strong>，主要也是供客户端模式下的HotSpot虚拟机使用。</p>
-<h4 id="Parallel-Old收集器"><a href="#Parallel-Old收集器" class="headerlink" title="Parallel Old收集器"></a>Parallel Old收集器</h4><p>Parallel Scavenge收集器的老年代版本，基于<strong>标记-整理</strong>算法实现。</p>
-<h4 id="CMS收集器"><a href="#CMS收集器" class="headerlink" title="CMS收集器"></a>CMS收集器</h4><p>CMS(Concurrent Mark Sweep)收集器是一种以获取<strong>最短回收停顿时间</strong>为目标的收集器。适用于对相应速度要求高的服务端虚拟机（互联网网站或者基于浏览器的B/S系统的服务端上）。<br>CMS基于<strong>标记-清除算法</strong>实现的，运作过程分为4个阶段：<strong>初始标记、并发标记、重新标记、并发清除</strong>。初始标记和重新标记仍然要“Stop The World”，但是耗时最长的并发标记和并发清除都可以和用户线程并发执行的，因此总体上来说，<strong>CMS收集器是和用户线程并发执行的</strong>。<br>CMS的优点是<strong>并发收集</strong>和<strong>低停顿</strong>。主要有以下三个缺点：</p>
-<blockquote>
-<ul>
-<li>对处理器资源敏感。当处理器数量不足4个时，CMS对用户程序的影响可能很大。</li>
-<li>CMS收集器无法处理“浮动垃圾”，有可能出现”Con-current Mode Failure”失败而导致另一次完全”Stop The World”的Full GC的产生。浮动垃圾是指在CMS的并发标记和并发清理阶段产生的垃圾。</li>
-<li>CMS基于标记-清除算法，收集结束时会产生大量空间碎片。空间碎片过多可能导致分配大对象时触发Full GC。</li>
-</ul>
-</blockquote>
-<h4 id="G1收集器"><a href="#G1收集器" class="headerlink" title="G1收集器"></a>G1收集器</h4><p>Garbage First收集器开创了收集器面向局部收集的设计思路和基于Region的内存布局形式，是一款主要面向<strong>服务端</strong>的垃圾收集器。<br>G1收集器的Mixed GC模式：可以面向堆内存任何部分来组成回收集(Collection Set)进行回收，衡量标准是哪块内存中垃圾最多，回收利益最大。<br>G1收集器开创了基于Region的堆内存布局：G1不再坚持固定大小和数量的分代区域划分，而是把连续的Java堆划分为多个大小相等的独立区域(Region)，每一个Region都可以根据需要扮演新生代或老生代。Region中还有一类特殊的<strong>Humongous区域，用于储存大小超过Region一半大小的大对象</strong>，对于大小超过一个Region大小的超大对象，将会被放在N个连续的Humongous区域中。</p>
-<h2 id="类文件结构"><a href="#类文件结构" class="headerlink" title="类文件结构"></a>类文件结构</h2><p>JVM平台无关性和语言无关性的基石都是字节码文件(Class文件)。</p>
-<h3 id="Class类文件结构"><a href="#Class类文件结构" class="headerlink" title="Class类文件结构"></a>Class类文件结构</h3><p>Class文件是<strong>一组以8个字节为基础单位的二进制流</strong>，当遇到需要8个字节以上空间的数据项时，会按照<strong>高位在前的方式分割为若干个8个字节进行存储</strong>。<br>Class文件采取一种类似于C语言结构的伪结构来储存数据，<strong>文件中没有任何分隔符</strong>。这种结构中只有两种数据类型：<strong>无类型数和表</strong>。无符号数属于基本的数据类型，可以用于描述数字、索引引用、数量值或字符串。表是由多个无符号数或者其它表作为数据项构成的数据类型，通常以”_info”结尾，<strong>用于描述有层次关系的复合结构的数据</strong>。</p>
-<h4 id="魔数与Class文件的版本"><a href="#魔数与Class文件的版本" class="headerlink" title="魔数与Class文件的版本"></a>魔数与Class文件的版本</h4><p>每个Class文件的<strong>头4个字节</strong>被称为魔数，它的<strong>唯一作用是确定这个文件是否为一个能被虚拟机接受的Class文件</strong>。紧接着4个字节是<strong>Class文件的版本号</strong>：第5个和第6个是次版本号，第7、8个是主版本号。</p>
-<h4 id="常量池"><a href="#常量池" class="headerlink" title="常量池"></a>常量池</h4><p>紧接着Java版本号后面的是常量池入口。常量池是Class文件结构中<strong>与其它项目关联最多的数据</strong>，通常也是<strong>占用空间最大的数据项之一</strong>，也是<strong>第一个出现的表类型数据项</strong>。<br>由于常量池的大小不固定，在常量池的入口处需要放置一项u2类型的数据，代表常量池的容量计数值，<strong>该数值从1开始</strong>，目的在于，如果后面某些指向常量池的索引值的数据在特定情况下需要表达“不引用任意一个常量池项目”的含义，可以把索引值设为0。常量池中主要存放两大类常量：<strong>字面量和符号引用</strong>。<br>常量池中每一项常量都是一个表，截至JDK13，常量表中分别有17种不同的常量，这些常量的共同特点是：<strong>表结构的起始位置有一个u1类型的标志位，代表着当前常量属于哪种类型</strong>。</p>
-<h4 id="类索引，父类索引与接口索引集合"><a href="#类索引，父类索引与接口索引集合" class="headerlink" title="类索引，父类索引与接口索引集合"></a>类索引，父类索引与接口索引集合</h4><p>类索引和父类索引都是一个u2类型的数据，而接口索引集合是一组u2类型数据的集合，三者用于<strong>确定类型的继承关系</strong>。</p>
-<h4 id="字段表集合"><a href="#字段表集合" class="headerlink" title="字段表集合"></a>字段表集合</h4><p>字段表用于描述<strong>接口或类中声明的变量</strong>，但不包括在方法内部声明的局部变量。字段表可以包含的修饰符有字段的作用域、是否为静态变量、可变性、并发可见性(volatile)、是否可序列化(transient)、字段数据类型、字段名称。<br>字段表集合中不会列出从父类或者父接口中继承而来的字段，但是可能会出现Java代码中原本没有的字段。Java代码中不允许字段重名，但是在Class文件格式中，只要两个字段的描述符不完全相同，字段重名就是合法的。</p>
-<h4 id="方法表集合"><a href="#方法表集合" class="headerlink" title="方法表集合"></a>方法表集合</h4><p>方法表用于描述<strong>类或接口中定义的方法</strong>，结构几乎与字段表集合相同。而方法里的Java代码，被编译成字节码指令之后，存放在方法属性表集合中一个名为”Code”的属性里面。<br>与字段表集合相对应的，如果父类方法没有在子类中被重写，就不会出现在子类的方法表集合中。但是方法表集合中可能出现由编译器自动添加的方法，最常见的是类构造器<clinit>()方法和实例构造器<init>()方法。<br>Java语言中，要重载一个方法，除了要与原方法具有相同的简单名称以外，还要求必须拥有一个与原方法不同的特征签名。特征签名是指一个方法中各个参数在常量池中的字段符号引用的集合，<strong>正是因为返回值不会包含在特征签名之中，所以Java语言中无法仅依靠返回值不同来重载方法。</strong>但是在Class文件格式中，两个方法有相同的名称和特征签名，但返回值不同，也是合法的。</p>
-<h2 id="虚拟机类加载机制"><a href="#虚拟机类加载机制" class="headerlink" title="虚拟机类加载机制"></a>虚拟机类加载机制</h2><p>虚拟机类加载机制是指<strong>JVM把描述类的数据从Class文件加载到内存，并对数据进行校验、转换解析和初始化，最终生成可以直接被JVM使用的Java类型</strong>。</p>
-<h3 id="类加载的时机"><a href="#类加载的时机" class="headerlink" title="类加载的时机"></a>类加载的时机</h3><p>一个类从被加载到虚拟机内存中开始，到卸载出内存为止，它的整个生命周期会经历<strong>加载(Loading)、验证(Verification)、准备(Preparation)、解析(Resolution)、初始化(Initialization)、使用(Using)和卸载(Unloading)七个阶段</strong>。其中验证、准备和解析统称为连接(Linking)。<br>加载、验证、准备、初始化和卸载这五个阶段的顺序是确定的，而<strong>解析阶段在某些情况下可以在初始化阶段之后再开始，这是为了支持Java语言的动态绑定特性</strong>。<br>以下几种情况必须立即对类进行初始化：</p>
-<ol>
-<li>遇到new、getstatic、putstatic、invokestatic这四条字节码指令时。能够生成这四条指令的典型场景有：<blockquote>
-<ul>
-<li>使用new关键字实例化对象的时候。</li>
-<li>读取或设置一个类型的静态字段的时候</li>
-<li>调用一个类型的静态方法的时候</li>
-</ul>
-</blockquote>
-</li>
-<li>使用java.lang.reflect包对类型进行反射调用的时候。</li>
-<li>初始化类时，如果其父类还没有进行初始化，先要触发父类的初始化。但是接口在初始化时不要求父接口全部初始化，只有真正用到了父接口时才会初始化父接口。</li>
-<li>虚拟机启动时，会先初始化主类（包含 main 方法的类）。</li>
-<li>当一个接口中定义了default方法时，如果有该接口的实现类发生了初始化，接口要首先进行初始化。</li>
-</ol>
-<p>以上几种场景的行为被称为对一个类型的<strong>主动引用</strong>，除此以外的一切引用类型的方式都不会触发初始化，称为<strong>被动引用</strong>。</p>
-<h3 id="类加载的过程"><a href="#类加载的过程" class="headerlink" title="类加载的过程"></a>类加载的过程</h3><h4 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h4><p>在加载阶段，JVM要做的事情包括：</p>
-<blockquote>
-<ul>
-<li>通过一个类的全限定名来获取定义此类的二进制字节流。</li>
-<li>将这个字节流表示的静态储存结构转化为方法区的运行时数据结构。</li>
-<li>在Java堆内存中生成一个代表这个类的Class对象，作为这个类的各种数据的访问入口。</li>
-</ul>
-</blockquote>
-<h4 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h4><p>验证是连接阶段的第一步，目的是保证Class文件中的字节流中包含的信息符合《Java虚拟机规范》的全部约束要求，保证这些信息被运行后不会危害虚拟机的安全。验证阶段对类加载机制非常重要，但不是必须的，可以通过-Xverify：none参数来关闭大部分的验证措施。<br>验证阶段大致可以分为以下四个阶段：</p>
-<blockquote>
-<ul>
-<li><strong>文件格式验证</strong>，验证字节流是否符合Class文件格式的规范，并且能被当前版本的虚拟机处理。<strong>只有这一阶段会发生字节流的读取和操作</strong>。</li>
-<li><strong>元数据验证</strong>，对字节码描述的信息进行语义分析，保证其描述的信息符合Java语言规范的要求。</li>
-<li><strong>字节码验证</strong>，通过数据流分析和控制流分析，确定程序语义是合法的、符合逻辑的。主要是对<strong>类的方法体（Class文件中的Code属性）</strong>进行校验分析，保证被校验类的方法在运行时不会危害虚拟机。</li>
-<li><strong>符号引用验证</strong>，该校验行为发生在符号引用转化为直接引用的时候，这一转化动作在<strong>解析阶段</strong>发生。符号引用验证主要是校验该类是否缺少或者被禁止访问它依赖的某些外部类、方法、字段等资源。如果无法通过符号引用验证，JVM将会抛出一个java.lang.IncompatibleClassError 的子异常。  </li>
-</ul>
-</blockquote>
-<h4 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h4><p>准备阶段是正式为<strong>类中定义的变量（static变量，不是实例变量）</strong>分配内存并设置类变量初始值的阶段，<strong>这里的初始值一般是数据类型的零值</strong>，给类变量赋予代码中的初始值要等到初始化阶段。</p>
-<h4 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h4><p>解析是<strong>JVM将常量池内的符号引用替换为直接引用的过程</strong>。解析主要针对类或接口、字段、类方法、接口方法、方法类型、方法句柄和调用点限定符这几类符号引用进行。</p>
-<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><p>在初始化阶段，JVM才真正开始执行类中编写的Java程序代码，同时会根据程序员给定的初始值区初始化类变量和其他资源。可以认为，<strong>初始化过程就是执行类构造器&lt;clinit&gt;()方法的过程</strong>。<br>&lt;clinit&gt;()方法是编译器自动收集类中的所有类变量的赋值动作和静态语句块中的语句合并产生的。&lt;clinit&gt;()方法与&lt;init&gt;()方法方法不同，不需要显式地调用父类构造器，Java虚拟机会保证在子类的&lt;clinit&gt;()方法执行前执行父类的&lt;clinit&gt;()方法。因此，<strong>第一个被执行的&lt;clinit&gt;()方法的类型肯定是java.lang.Object</strong>，同时也意味着父类中定义的静态语句块要优先于子类的变量赋值操作。<br>接口中有变量初始化的赋值操作，因此也会生成&lt;clinit&gt;()方法，但接口的实现类在初始化时不会执行接口的&lt;clinit&gt;()方法。</p>
-<h3 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h3><p>类加载器用于<strong>通过一个类的全限定名来获取描述该类的二进制字节流</strong>。</p>
-<h4 id="类与类加载器"><a href="#类与类加载器" class="headerlink" title="类与类加载器"></a>类与类加载器</h4><p>对于任意一个类，都必须由<strong>加载它的类加载器和这个类</strong>本身一起共同确定在JVM中的<strong>唯一性</strong>。<strong>比较这两个类是否“相等”，只有在这两个类有同一个类加载器加载的前提下才有意义</strong>。</p>
-<h4 id="双亲委派模型"><a href="#双亲委派模型" class="headerlink" title="双亲委派模型"></a>双亲委派模型</h4><p>站在JVM的角度看，只存在两种不同的类加载器：</p>
-<blockquote>
-<ul>
-<li><strong>启动类加载器</strong>，使用C++实现，是虚拟机自身的一部分。</li>
-<li><strong>其他所有的类加载器</strong>，使用Java语言实现，独立存在于虚拟机外部，全部继承自抽象类Java.lang.ClassLoader。</li>
-</ul>
-</blockquote>
-<p>从开发人员的角度来看，有三种类加载器：</p>
-<blockquote>
-<ul>
-<li><strong>启动类加载器</strong>，负责加载存放在 JAVA_HOME\lib 目录，或被-Xbootclasspath参数所指定的路径中存放的可被JVM识别的类库。启动类加载器无法直接被Java程序引用。</li>
-<li><strong>拓展类加载器</strong>，使用Java实现，负责加载 JAVA-HOME\lib\ext 目录中，或是被java.ext.dirs系统变量所指定的路径中所有的类库。可以直接在程序中使用。</li>
-<li><strong>应用程序类加载器</strong>，负责加载用户类路径中的所有类库，可以直接在代码中使用。</li>
-</ul>
-</blockquote>
-<p>双亲委派模型：<br><img src="https://img-blog.csdnimg.cn/20200104165551656.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly90aGlua3dvbi5ibG9nLmNzZG4ubmV0,size_16,color_FFFFFF,t_70" alt="双亲委派模型"><br>双亲委派模型的工作过程是：如果一个类加载器收到了类加载的请求，他首先不会自己去尝试加载这个类，而是把这个请求委派给父类加载器去完成。所有的加载请求最终都应该被传递到最顶层的启动类加载器中。只有父加载器反馈自己无法完成加载请求时，子加载器才会尝试自己加载。<br>使用双亲委派模型的好处就是Java中的类随着它的类加载器一起具备了一种带有优先级的层级关系。也使得启动类（如Object）在各种类加载器中都能保证是同一个类。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/03/17/JVM/" data-id="cknpdeimt0001xcv1chnu63gb" data-title="" class="article-share-link">Condividi</a>
+      <a data-url="http://example.com/2021/04/20/hello-world/" data-id="cknpdni2y0000x8v1hc83dk1z" data-title="Hello World" class="article-share-link">Teilen</a>
       
       
       
@@ -432,9 +142,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archivio</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li></ul>
     </div>
   </div>
 
@@ -442,16 +152,12 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Post Recenti</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
         
           <li>
             <a href="/2021/04/20/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/17/JVM/">(no title)</a>
           </li>
         
       </ul>
